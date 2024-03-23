@@ -28,7 +28,7 @@ if game.PlaceId ~= 8737899170 then
 end
 _G.Primary = Color3.fromRGB(0, 45, 255)
 _G.Dark = Color3.fromRGB(46, 56, 56)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ImTienNguyenZ/AppleHubOnTop/main/Settings"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/daviduts1/UwU/main/ui"))()
 local LocalPlayer = game.Players.LocalPlayer
 local HumanoidRootPart = LocalPlayer.Character:FindFirstChild("HumanoidRootPart", true)
 
@@ -220,9 +220,9 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 local function notifytientiny(content, duration)
 Fluent:Notify({
-        Title = "Apple Hub System",
+        Title = "Edward Newgate",
         Content = content,
-        SubContent = "By: Nguyen Minh Tien", -- Optional
+        SubContent = "By: Edward Newgate", -- Optional
         Duration = duration, -- Set to nil to make the notification not disappear
     })
 end 
@@ -1084,7 +1084,7 @@ local TogglePadding = Instance.new("UIPadding")
 				imgLabelIcon.BackgroundTransparency = 1.000
 				imgLabelIcon.Position = UDim2.new(0, 5, 0, 8)
 				imgLabelIcon.Size = UDim2.new(0, 30, 0, 30)
-				imgLabelIcon.Image = "rbxassetid://10709761889" 
+				imgLabelIcon.Image = "rbxassetid://15867528462" 
 
 Title.Parent = Button
 Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
@@ -1209,7 +1209,7 @@ local imgLabelIcon = Instance.new("ImageLabel")
 				imgLabelIcon.BackgroundTransparency = 1.000
 				imgLabelIcon.Position = UDim2.new(0, 5, 0, 3)
 				imgLabelIcon.Size = UDim2.new(0, 30, 0, 30)
-				imgLabelIcon.Image = "rbxassetid://10709761889" 
+				imgLabelIcon.Image = "rbxassetid://15867528462" 
 
 DropTitle.Name = "DropTitle"
 DropTitle.Parent = Dropdown
@@ -1474,7 +1474,7 @@ end
                 ImageLabel.BorderSizePixel = 0
                 ImageLabel.Position = UDim2.new(0, 7.5, 0, 7.5)
                 ImageLabel.Size = UDim2.new(0, 30, 0, 30)
-                ImageLabel.Image = "rbxassetid://10709761889"
+                ImageLabel.Image = "rbxassetid://15867528462"
                 
                 
                 
@@ -1800,7 +1800,7 @@ sliderrcorner.Parent = sliderr
                 ImageLabel.BorderSizePixel = 0
                 ImageLabel.Position = UDim2.new(0, 7.5, 0, 7.5)
                 ImageLabel.Size = UDim2.new(0, 30, 0, 30)
-                ImageLabel.Image = "rbxassetid://10709761889"
+                ImageLabel.Image = "rbxassetid://15867528462"
                 
                 
                 
@@ -2391,30 +2391,30 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------
 local Library = Update:Window("APPLE HUB","BLOX FRUIT",Enum.KeyCode.RightControl);
 ------------------------------------------------------------------------------------------------------------------------------------------------
-local TienTiny = Library:AddTab("Information","rbxassetid://10723415903")
-local Main = Library:AddTab("General","rbxassetid://10723415903")
-local Tp = Library:AddTab("Teleporter","rbxassetid://10723415903")
-local Mini = Library:AddTab("Minigames","rbxassetid://10723415903")
-local Event = Library:AddTab("Rewards","rbxassetid://10723415903")
-local Misc = Library:AddTab("Miscellaneous","rbxassetid://10723415903")
+local TienTiny = Library:AddTab("Information","rbxassetid://15867528462")
+local Main = Library:AddTab("General","rbxassetid://15867528462")
+local Tp = Library:AddTab("Teleporter","rbxassetid://15867528462")
+local Mini = Library:AddTab("Minigames","rbxassetid://15867528462")
+local Event = Library:AddTab("Rewards","rbxassetid://15867528462")
+local Misc = Library:AddTab("Miscellaneous","rbxassetid://15867528462")
 ------------------------------------------------------------------------------------------------------------------------------------------------
 if _G.TienTiny == "VietNam" then
-TienTiny:AddSeperator("Apple Hub")
+TienTiny:AddSeperator("Edward Newgate Hub")
 TienTiny:UserMinhTien()
-local Creator44 = TienTiny:AddLabel('Chào '..game.Players.LocalPlayer.Name.." Đã Sử Dụng Apple Hub !!")
+local Creator44 = TienTiny:AddLabel('Chào '..game.Players.LocalPlayer.Name.." Đã Sử Dụng Edward Newgate Hub !!")
 
 spawn(function()
     while wait() do
         pcall(function()
-            if game.Players.LocalPlayer.Name == "NguyenMinhTienTiny" then
-            Creator44:Set("Hii Developer Welcome Back!! | Dí Rosé Không?")
+            if game.Players.LocalPlayer.Name == "EdwardNewgate" then
+            Creator44:Set("Hii Developer Welcome Back!")
             end
         end)
     end
 end)
 
 TienTiny:AddSeperator("🧑‍💻 Nhà Phát Triển 🧑‍💻")
-TienTiny:AddLabel("Quản Trị Viên: Nguyen Minh Tien (Tien Tiny)")
+TienTiny:AddLabel("Quản Trị Viên: Edward Newgate ")
 TienTiny:AddSeperator("Mạng Xã Hội")
 TienTiny:AddButton('Discord Sever', function()
 setclipboard(_G.Discord)
@@ -2429,15 +2429,15 @@ setclipboard(_G.TikTok)
 notifytientiny("Đã Sao Chép Vào Clipboard !?", 3)
 end)
 else
-TienTiny:AddSeperator("Apple Hub")
+TienTiny:AddSeperator("Edward Newgate Hub")
 TienTiny:UserMinhTien()
 local Creator = TienTiny:AddLabel('Hii '..game.Players.LocalPlayer.Name.." To Apple Hub !! Thanks Using.")
 
 spawn(function()
     while wait() do
         pcall(function()
-            if game.Players.LocalPlayer.Name == "NguyenMinhTienTiny" then
-            Creator:Set("Hii Developer Welcome Back!! | Dí Rosé Không?")
+            if game.Players.LocalPlayer.Name == "EdwardNewgate" then
+            Creator:Set("Hii Developer Welcome Back!!")
             end
         end)
     end
