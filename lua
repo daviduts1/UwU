@@ -9,7 +9,7 @@ KeySystemUI.New({
     Name = "Edward Newgate Hub", -- Your Script name
     Info = "script buy edwardnewgatedz", -- Info text in the GUI, keep empty for default text.
     DiscordInvite = "https://discord.gg/wMAAcxjFww", -- Optional.
-    AuthType = "clientid" -- Can select verification with ClientId or IP ("clientid" or "ip")
+    AuthType = "ip" -- Can select verification with ClientId or IP ("clientid" or "ip")
 })
 repeat task.wait() until KeySystemUI.Finished() or KeySystemUI.Closed
 if KeySystemUI.Finished() and KeySystemUI.Closed == false then
