@@ -1,0 +1,35 @@
+-- Tạo một đối tượng TextButton (nút văn bản)
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Size = UDim2.new(0.5, 0, 0.2, 0) -- Kích thước của nút
+ToggleButton.Position = UDim2.new(0.25, 0, 0.3, 0) -- Vị trí trung tâm theo chiều ngang và 30% từ trên xuống
+ToggleButton.BackgroundColor3 = Color3.fromRGB(100, 200, 100) -- Màu nền
+ToggleButton.BorderSizePixel = 2 -- Độ dày của viền
+ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0) -- Màu viền
+ToggleButton.Text = "" -- Không hiển thị văn bản trên nút
+ToggleButton.Parent = Frame
+
+-- Tạo một đối tượng ImageLabel (nhãn hình ảnh) cho biểu tượng bật/tắt
+local ToggleIcon = Instance.new("ImageLabel")
+ToggleIcon.Size = UDim2.new(0.5, 0, 1, 0) -- Kích thước của biểu tượng
+ToggleIcon.Position = UDim2.new(0, 0, 0, 0) -- Vị trí bắt đầu từ góc trên bên trái của nút
+ToggleIcon.Image = "rbxassetid://16088640168" -- ID của hình ảnh của bạn
+ToggleIcon.Parent = ToggleButton
+
+local isToggled = false -- Biến để theo dõi trạng thái bật/tắt
+
+-- Hàm để thay đổi trạng thái bật/tắt khi nút được nhấn
+local function ToggleButtonClicked()
+	isToggled = not isToggled -- Đảo ngược trạng thái
+	if isToggled then
+		-- Thay đổi hình ảnh khi bật
+		ToggleIcon.Image = "rbxassetid://16088640168" -- ID của hình ảnh khi nút được bật
+		-- Thêm các lệnh khi bật
+	else
+		-- Thay đổi hình ảnh khi tắt
+		ToggleIcon.Image = "rbxassetid://16088640168" -- ID của hình ảnh khi nút được tắt
+		-- Thêm các lệnh khi tắt
+	end
+end
+
+-- Gán hàm trên vào sự kiện Click của nút
+ToggleButton.MouseButton1Click:Connect(ToggleButtonClicked)
