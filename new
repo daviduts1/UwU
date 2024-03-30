@@ -2154,7 +2154,7 @@ local Section = Tabs.Main:AddSection("Farm Level")
 
 local FarmLevel = Tabs.Main:AddToggle("FarmLeve", {Title = "Auto Farm Level", Default = false })
 Options.FarmLeve:SetValue(false)
-FarmLevel:OnChanged(function(v)
-    _G.AutoFarm = v
+FarmLevel:OnChanged(function(Value)
+    _G.AutoFarm = Value
     StopTween(_G.AutoFarm)
 end)
