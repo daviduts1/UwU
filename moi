@@ -1,0 +1,74 @@
+if game.PlaceId == 2753915549 then
+    World1 = true
+elseif game.PlaceId == 4442272183 then
+    World2 = true
+elseif game.PlaceId == 7449423635 then
+    World3 = true
+end
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+local Window = Fluent:CreateWindow({
+    Title = "Edward Newgate Hub",
+    SubTitle = "Version 1.0",
+    TabWidth = 140,
+    Size = UDim2.fromOffset(530, 350),
+    Acrylic = true,
+    Theme = "blue",
+    MinimizeKey = Enum.KeyCode.Deletes
+
+
+})
+
+----------------------------
+
+if game.CoreGui:FindFirstChild("Edward Newgate HubOpenClose") then
+    game.CoreGui:FindFirstChild("Edward Newgate HubOpenClose"):Destroy()
+end
+local UIStroke = Instance.new("UIStroke")
+local UICorner = Instance.new("UICorner")
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "TinhLinhHubOpenClose"
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+ImageButton.Draggable = false
+ImageButton.Position = UDim2.new(0.08, 0, 0.06, 0)
+ImageButton.Size = UDim2.new(0, 50, 0, 50)
+ImageButton.Image = "rbxassetid://16088640168"
+UICorner.Name = "MainCorner"
+UICorner.CornerRadius = UDim.new(0, 9)
+UICorner.Parent = ImageButton
+ImageButton.MouseButton1Down:connect(function()
+game:GetService("VirtualInputManager"):SendKeyEvent(true,127,false,game)
+game:GetService("VirtualInputManager"):SendKeyEvent(false,127,false,game)
+end)
+
+
+----------------------------------------------------tap-------------------------------------------------------------------------------
+
+local Tabs = {
+    Farm = Window:AddTab({ Title = "Tab Farm", Icon = "Home" }),wait(0.5),
+    FruitRaid = Window:AddTab({ Title = "Tab Fruit & Raid", Icon = "Fruit" }),wait(0.5),
+    Misc = Window:AddTab({ Title = "Tab Misc", Icon = "" }),wait(0.5),
+    Item = Window:AddTab({ Title = "Tab Item & Quest", Icon = "Sword" }),wait(0.5),
+    Race = Window:AddTab({ Title = "Tab Race", Icon = "Race" }),wait(0.5),
+    StatsEsp = Window:AddTab({ Title = "Tab Stats & Esp", Icon = "Play" }),wait(0.5),
+    Teleport = Window:AddTab({ Title = "Tab Teleport", Icon = "Teleport" }),wait(0.5),
+    StatusServer = Window:AddTab({ Title = "Tab Status & Server", Icon = "Server" }),wait(0.5),
+    Setting = Window:AddTab({ Title = "Tab Setting", Icon = "Setting" }),wait(0.5),
+}
+
+local Options = Fluent.Options
+
