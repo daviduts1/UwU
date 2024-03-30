@@ -19,8 +19,8 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 --------------------------------------------------------------------------------------------------------------------------------
 
 local Window = Fluent:CreateWindow({
-    Title = "Tinh Linh Hub",
-    SubTitle = "Version Beta",
+    Title = "Edward Newgate Hub",
+    SubTitle = "Version 1.0",
     TabWidth = 140,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true,
@@ -61,7 +61,7 @@ ImageButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
 ImageButton.Draggable = false
 ImageButton.Position = UDim2.new(0.08, 0, 0.06, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
-ImageButton.Image = "rbxassetid://16730867128"
+ImageButton.Image = "rbxassetid://15867528462"
 UICorner.Name = "MainCorner"
 UICorner.CornerRadius = UDim.new(0, 9)
 UICorner.Parent = ImageButton
