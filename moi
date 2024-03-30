@@ -26,7 +26,7 @@ local Window = Fluent:CreateWindow({
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Darker",
+    Theme = "blue",
     MinimizeKey = Enum.KeyCode.End -- Used when theres no MinimizeKeybind
 })
 local Tabs = {
@@ -46,16 +46,15 @@ local Options = Fluent.Options
 do
 end
 ----------------------------
-
-if game.CoreGui:FindFirstChild("Edward Newgate Hub") then
-    game.CoreGui:FindFirstChild("Edward Newgate Hub"):Destroy()
+if game.CoreGui:FindFirstChild("TinhLinhHubOpenClose") then
+    game.CoreGui:FindFirstChild("TinhLinhHubOpenClose"):Destroy()
 end
 local UIStroke = Instance.new("UIStroke")
 local UICorner = Instance.new("UICorner")
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "Edward Newgate"
+ScreenGui.Name = "TinhLinhHubOpenClose"
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ImageButton.Parent = ScreenGui
@@ -72,7 +71,6 @@ ImageButton.MouseButton1Down:connect(function()
 game:GetService("VirtualInputManager"):SendKeyEvent(true,127,false,game)
 game:GetService("VirtualInputManager"):SendKeyEvent(false,127,false,game)
 end)
-
 -----------------------------------
 
 function CheckQuest()
