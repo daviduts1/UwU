@@ -661,7 +661,7 @@ UIStroke1.Thickness = 2
 UIStroke1.Parent = Skip
 
 TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "Edward Newgate Hub auto bouty"
+TextLabel.Text = "Rùa Hub auto bouty"
 TextLabel.TextColor3 = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
 TextLabel.TextSize = 16
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -685,7 +685,7 @@ UIGradient.Rotation = 45
 UIGradient.Parent = Frame
 
 TextLabel1.Font = Enum.Font.GothamBold
-TextLabel1.Text = "V2"
+TextLabel1.Text = ""
 TextLabel1.TextColor3 = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
 TextLabel1.TextSize = 50
 TextLabel1.TextTransparency = 0.10000000149011612
