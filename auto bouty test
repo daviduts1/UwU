@@ -361,10 +361,9 @@ end
 function getAvailableSkills(Setting) 
     local V = game.Players.LocalPlayer.PlayerGui.Main.Skills
     local Cache = {}
-    local Cache2 = {}
     for i, v in pairs(lp.Character:GetChildren()) do 
         if v:IsA("Tool") then 
-            table.insert(Cache2, v)
+            table.insert(Cache, v)
         end 
     end 
     for i, v in pairs(lp.Backpack:GetChildren()) do 
@@ -374,7 +373,7 @@ function getAvailableSkills(Setting)
     end 
     for i, v in pairs(Cache) do 
         -- warn(v, v.ToolTip , Setting.Item[v.ToolTip]    )
-        if not table.find(Cache2, v.ToolTip) and v.ToolTip and Setting.Item[v.ToolTip] and Setting.Item[v.ToolTip].Enable then
+        if v.ToolTip and Setting.Item[v.ToolTip] and Setting.Item[v.ToolTip].Enable then
             -- warn(1)
             for i2, v2 in pairs(Setting.Item[v.ToolTip]) do
                 if i2 ~= "Enable" and v2.Enable then 
@@ -574,192 +573,223 @@ function checktarget()
     return true
 end
 --// Gui
-ScreenGui = Instance.new("ScreenGui");
-DropShadowHolder = Instance.new("Frame");
-DropShadow = Instance.new("ImageLabel");
-Frame = Instance.new("Frame");
+MainGui = Instance.new("ScreenGui");
+MainFrame = Instance.new("Frame");
 UICorner = Instance.new("UICorner");
-Skip = Instance.new("TextButton");
-UIStroke = Instance.new("UIStroke");
+Background = Instance.new("ImageLabel");
 UICorner1 = Instance.new("UICorner");
-UIStroke1 = Instance.new("UIStroke");
+Character = Instance.new("ImageLabel");
 TextLabel = Instance.new("TextLabel");
-UIStroke2 = Instance.new("UIStroke");
-UIGradient = Instance.new("UIGradient");
 TextLabel1 = Instance.new("TextLabel");
+CharacterIcon = Instance.new("ImageLabel");
+BountyEarned = Instance.new("TextLabel");
+UIStroke = Instance.new("UIStroke");
+TotalBountyEarned = Instance.new("TextLabel");
+UIStroke1 = Instance.new("UIStroke");
+CilentTimeElapsed = Instance.new("TextLabel");
+UIStroke2 = Instance.new("UIStroke");
+AccoutTimeElapsed = Instance.new("TextLabel");
 UIStroke3 = Instance.new("UIStroke");
-TextLabel2 = Instance.new("TextLabel");
-UIStroke4 = Instance.new("UIStroke");
-TextLabel3 = Instance.new("TextLabel");
-UIStroke5 = Instance.new("UIStroke");
-UseCamFarm = Instance.new("TextButton");
-UIStroke6 = Instance.new("UIStroke");
+SkipImg = Instance.new("ImageLabel");
 UICorner2 = Instance.new("UICorner");
-UIStroke7 = Instance.new("UIStroke");
+SkipButton = Instance.new("TextButton");
+CrentBounty = Instance.new("TextLabel");
+UIStroke4 = Instance.new("UIStroke");
 
+MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+MainGui.Name = "MainGui"
+MainGui.Parent = game:GetService("CoreGui")
 
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.Parent = lp.PlayerGui
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.Size = UDim2.new(0, 750, 0, 380)
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = MainGui
 
-DropShadowHolder.AnchorPoint = Vector2.new(0, 0.5)
-DropShadowHolder.BackgroundTransparency = 1
-DropShadowHolder.BorderSizePixel = 0
-DropShadowHolder.Position = UDim2.new(0, 15, 0.5, 0)
-DropShadowHolder.Size = UDim2.new(0, 270, 0, 105)
-DropShadowHolder.ZIndex = 0
-DropShadowHolder.Name = "DropShadowHolder"
-DropShadowHolder.Parent = ScreenGui
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = MainFrame
 
-DropShadow.Image = "rbxassetid://6015897843"
-DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-DropShadow.ImageTransparency = 0.5
-DropShadow.ScaleType = Enum.ScaleType.Slice
-DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-DropShadow.BackgroundTransparency = 1
-DropShadow.BorderSizePixel = 0
-DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-DropShadow.Size = UDim2.new(1, 50, 1, 50)
-DropShadow.ZIndex = 0
-DropShadow.Name = "DropShadow"
-DropShadow.Parent = DropShadowHolder
+Background.Image = "rbxassetid://16968132570"
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BackgroundTransparency = 0.9990000128746033
+Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Background.BorderSizePixel = 0
+Background.Size = UDim2.new(1, 0, 1, 0)
+Background.Name = "Background"
+Background.Parent = MainFrame
 
-Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-Frame.Size = UDim2.new(1, -50, 1, -50)
-Frame.Parent = DropShadow
+UICorner1.CornerRadius = UDim.new(0, 5)
+UICorner1.Parent = Background
 
-UICorner.CornerRadius = UDim.new(0, 3)
-UICorner.Parent = Frame
+Character.Image = "rbxassetid://16951411241"
+Character.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Character.BackgroundTransparency = 0.9990000128746033
+Character.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Character.BorderSizePixel = 0
+Character.Position = UDim2.new(0, 485, 0, -80)
+Character.Size = UDim2.new(0, 297, 0, 460)
+Character.Name = "Character"
+Character.Parent = MainFrame
 
-Skip.Font = Enum.Font.GothamBold
-Skip.Text = "Next Player"
-Skip.TextColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
-Skip.TextSize = 14
-Skip.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Skip.BackgroundTransparency = 0.9990000128746033
-Skip.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Skip.BorderSizePixel = 0
-Skip.Position = UDim2.new(0.0350000449, 0, 0.687864065, 0)
-Skip.Size = UDim2.new(0, 121, 0, 22)
-Skip.Name = "Skip"
-Skip.Parent = Frame
-
-UIStroke.Color = Color3.fromRGB(230.00000149011612, 230.00000149011612, 230.00000149011612)
-UIStroke.Thickness = 0.30000001192092896
-UIStroke.Parent = Skip
-
-UICorner1.CornerRadius = UDim.new(0, 1)
-UICorner1.Parent = Skip
-
-UIStroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UIStroke1.Color = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-UIStroke1.Thickness = 2
-UIStroke1.Parent = Skip
-
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "Rùa Hub auto bouty"
-TextLabel.TextColor3 = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-TextLabel.TextSize = 16
+TextLabel.Font = Enum.Font.GrenzeGotisch
+TextLabel.Text = "Rùa Hub Auto Bounty"
+TextLabel.TextColor3 = Color3.fromRGB(228.0000016093254, 255, 207.00000286102295)
+TextLabel.TextSize = 51
+TextLabel.TextTransparency = 0.800000011920929
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BackgroundTransparency = 0.9990000128746033
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0350000188, 0, 0.0889999419, 0)
-TextLabel.Size = UDim2.new(0, 186, 0, 17)
-TextLabel.Parent = Frame
+TextLabel.Position = UDim2.new(0, 74, 0, 9)
+TextLabel.Size = UDim2.new(0, 320, 0, 45)
+TextLabel.Parent = MainFrame
 
-UIStroke2.Color = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-UIStroke2.Thickness = 0.4000000059604645
-UIStroke2.Parent = TextLabel
-
-UIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(28.000000230968, 39.00000147521496, 54.00000058114529))
-}
-UIGradient.Rotation = 45
-UIGradient.Parent = Frame
-
-TextLabel1.Font = Enum.Font.GothamBold
-TextLabel1.Text = ""
-TextLabel1.TextColor3 = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-TextLabel1.TextSize = 50
-TextLabel1.TextTransparency = 0.10000000149011612
+TextLabel1.Font = Enum.Font.GrenzeGotisch
+TextLabel1.Text = "Rùa Hub Auto Bounty"
+TextLabel1.TextColor3 = Color3.fromRGB(239.00000095367432, 255, 221.00000202655792)
+TextLabel1.TextSize = 51
 TextLabel1.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel1.BackgroundTransparency = 0.9990000128746033
 TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel1.BorderSizePixel = 0
-TextLabel1.Position = UDim2.new(0.726186752, 0, 0.0889968872, 0)
-TextLabel1.Size = UDim2.new(0, 65, 0, 42)
-TextLabel1.Parent = Frame
+TextLabel1.Position = UDim2.new(0, 5, 0, 0)
+TextLabel1.Size = UDim2.new(1, 0, 1, 0)
+TextLabel1.Parent = TextLabel
 
-UIStroke3.Color = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-UIStroke3.Thickness = 2
-UIStroke3.Parent = TextLabel1
+CharacterIcon.Image = "rbxassetid://16968165624"
+CharacterIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CharacterIcon.BackgroundTransparency = 0.9990000128746033
+CharacterIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CharacterIcon.BorderSizePixel = 0
+CharacterIcon.Position = UDim2.new(0, 9, 0, 9)
+CharacterIcon.Size = UDim2.new(0, 45, 0, 45)
+CharacterIcon.Name = "CharacterIcon"
+CharacterIcon.Parent = MainFrame
 
-TextLabel2.Font = Enum.Font.GothamBold
-TextLabel2.Text = "Earn: 0"
-TextLabel2.TextColor3 = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-TextLabel2.TextSize = 16
-TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel2.BackgroundTransparency = 0.9990000128746033
-TextLabel2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel2.BorderSizePixel = 0
-TextLabel2.Position = UDim2.new(0.034999989, 0, 0.258999944, 0)
-TextLabel2.Size = UDim2.new(0, 187, 0, 17)
-TextLabel2.Parent = Frame
+BountyEarned.Font = Enum.Font.Bodoni
+BountyEarned.Text = "Bounty Earned: 0$"
+BountyEarned.TextColor3 = Color3.fromRGB(255, 255, 255)
+BountyEarned.TextSize = 25
+BountyEarned.TextTransparency = 0.10000000149011612
+BountyEarned.TextXAlignment = Enum.TextXAlignment.Left
+BountyEarned.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BountyEarned.BackgroundTransparency = 0.9990000128746033
+BountyEarned.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BountyEarned.BorderSizePixel = 0
+BountyEarned.Position = UDim2.new(0, 15, 0, 123)
+BountyEarned.Size = UDim2.new(0, 336, 0, 27)
+BountyEarned.Name = "BountyEarned"
+BountyEarned.Parent = MainFrame
 
-UIStroke4.Color = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
+UIStroke.Color = Color3.fromRGB(47.0000009983778, 255, 0)
+UIStroke.Thickness = 0.4000000059604645
+UIStroke.Parent = BountyEarned
+
+TotalBountyEarned.Font = Enum.Font.Bodoni
+TotalBountyEarned.Text = "Total Bounty Earned: 0$"
+TotalBountyEarned.TextColor3 = Color3.fromRGB(255, 255, 255)
+TotalBountyEarned.TextSize = 25
+TotalBountyEarned.TextTransparency = 0.10000000149011612
+TotalBountyEarned.TextXAlignment = Enum.TextXAlignment.Left
+TotalBountyEarned.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TotalBountyEarned.BackgroundTransparency = 0.9990000128746033
+TotalBountyEarned.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TotalBountyEarned.BorderSizePixel = 0
+TotalBountyEarned.Position = UDim2.new(0, 15, 0, 175)
+TotalBountyEarned.Size = UDim2.new(0, 336, 0, 27)
+TotalBountyEarned.Name = "TotalBountyEarned"
+TotalBountyEarned.Parent = MainFrame
+
+UIStroke1.Color = Color3.fromRGB(47.0000009983778, 255, 0)
+UIStroke1.Thickness = 0.4000000059604645
+UIStroke1.Parent = TotalBountyEarned
+
+CilentTimeElapsed.Font = Enum.Font.Bodoni
+CilentTimeElapsed.Text = "Cilent Time Elapsed: 0h:0m:0s"
+CilentTimeElapsed.TextColor3 = Color3.fromRGB(255, 255, 255)
+CilentTimeElapsed.TextSize = 25
+CilentTimeElapsed.TextTransparency = 0.10000000149011612
+CilentTimeElapsed.TextXAlignment = Enum.TextXAlignment.Left
+CilentTimeElapsed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CilentTimeElapsed.BackgroundTransparency = 0.9990000128746033
+CilentTimeElapsed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CilentTimeElapsed.BorderSizePixel = 0
+CilentTimeElapsed.Position = UDim2.new(0, 15, 0, 228)
+CilentTimeElapsed.Size = UDim2.new(0, 336, 0, 27)
+CilentTimeElapsed.Name = "CilentTimeElapsed"
+CilentTimeElapsed.Parent = MainFrame
+
+UIStroke2.Color = Color3.fromRGB(47.0000009983778, 255, 0)
+UIStroke2.Thickness = 0.4000000059604645
+UIStroke2.Parent = CilentTimeElapsed
+
+AccoutTimeElapsed.Font = Enum.Font.Bodoni
+AccoutTimeElapsed.Text = "Account Time Elapsed: 0h:0m:0s"
+AccoutTimeElapsed.TextColor3 = Color3.fromRGB(255, 255, 255)
+AccoutTimeElapsed.TextSize = 25
+AccoutTimeElapsed.TextTransparency = 0.10000000149011612
+AccoutTimeElapsed.TextXAlignment = Enum.TextXAlignment.Left
+AccoutTimeElapsed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AccoutTimeElapsed.BackgroundTransparency = 0.9990000128746033
+AccoutTimeElapsed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AccoutTimeElapsed.BorderSizePixel = 0
+AccoutTimeElapsed.Position = UDim2.new(0, 15, 0, 281)
+AccoutTimeElapsed.Size = UDim2.new(0, 336, 0, 27)
+AccoutTimeElapsed.Name = "AccoutTimeElapsed"
+AccoutTimeElapsed.Parent = MainFrame
+
+UIStroke3.Color = Color3.fromRGB(47.0000009983778, 255, 0)
+UIStroke3.Thickness = 0.4000000059604645
+UIStroke3.Parent = AccoutTimeElapsed
+
+SkipImg.Image = "rbxassetid://16969185604"
+SkipImg.AnchorPoint = Vector2.new(0, 1)
+SkipImg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SkipImg.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SkipImg.BorderSizePixel = 0
+SkipImg.Position = UDim2.new(0, 5, 1, -5)
+SkipImg.Size = UDim2.new(0, 150, 0, 48)
+SkipImg.Name = "SkipImg"
+SkipImg.Parent = MainFrame
+
+UICorner2.CornerRadius = UDim.new(0, 100)
+UICorner2.Parent = SkipImg
+
+SkipButton.Font = Enum.Font.Bodoni
+SkipButton.Text = "Skip"
+SkipButton.TextColor3 = Color3.fromRGB(239.00000095367432, 255, 221.00000202655792)
+SkipButton.TextSize = 30
+SkipButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SkipButton.BackgroundTransparency = 0.9990000128746033
+SkipButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SkipButton.BorderSizePixel = 0
+SkipButton.Size = UDim2.new(1, 0, 1, 0)
+SkipButton.Name = "SkipButton"
+SkipButton.Parent = SkipImg
+
+CrentBounty.Font = Enum.Font.Bodoni
+CrentBounty.Text = "Current Bounty: 0$"
+CrentBounty.TextColor3 = Color3.fromRGB(255, 255, 255)
+CrentBounty.TextSize = 25
+CrentBounty.TextTransparency = 0.10000000149011612
+CrentBounty.TextXAlignment = Enum.TextXAlignment.Left
+CrentBounty.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CrentBounty.BackgroundTransparency = 0.9990000128746033
+CrentBounty.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CrentBounty.BorderSizePixel = 0
+CrentBounty.Position = UDim2.new(0, 14, 0, 70)
+CrentBounty.Size = UDim2.new(0, 336, 0, 27)
+CrentBounty.Name = "CrentBounty"
+CrentBounty.Parent = MainFrame
+
+UIStroke4.Color = Color3.fromRGB(47.0000009983778, 255, 0)
 UIStroke4.Thickness = 0.4000000059604645
-UIStroke4.Parent = TextLabel2
-
-TextLabel3.Font = Enum.Font.GothamBold
-TextLabel3.Text = "Time Elapsed: 0h:0m:0s"
-TextLabel3.TextColor3 = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-TextLabel3.TextSize = 16
-TextLabel3.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel3.BackgroundTransparency = 0.9990000128746033
-TextLabel3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel3.BorderSizePixel = 0
-TextLabel3.Position = UDim2.new(0.034999989, 0, 0.439999998, 0)
-TextLabel3.Size = UDim2.new(0, 251, 0, 17)
-TextLabel3.Parent = Frame
-
-UIStroke5.Color = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-UIStroke5.Thickness = 0.4000000059604645
-UIStroke5.Parent = TextLabel3
-
-UseCamFarm.Font = Enum.Font.GothamBold
-UseCamFarm.Text = "Enable Cam Farm"
-UseCamFarm.TextColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
-UseCamFarm.TextSize = 14
-UseCamFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-UseCamFarm.BackgroundTransparency = 0.9990000128746033
-UseCamFarm.BorderColor3 = Color3.fromRGB(0, 0, 0)
-UseCamFarm.BorderSizePixel = 0
-UseCamFarm.Position = UDim2.new(0.516481519, 0, 0.687864065, 0)
-UseCamFarm.Size = UDim2.new(0, 121, 0, 22)
-UseCamFarm.Name = "Skip"
-UseCamFarm.Parent = Frame
-
-UIStroke6.Color = Color3.fromRGB(230.00000149011612, 230.00000149011612, 230.00000149011612)
-UIStroke6.Thickness = 0.30000001192092896
-UIStroke6.Parent = UseCamFarm
-
-UICorner2.CornerRadius = UDim.new(0, 1)
-UICorner2.Parent = UseCamFarm
-
-UIStroke7.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UIStroke7.Color = Color3.fromRGB(131.00000739097595, 181.0000044107437, 255)
-UIStroke7.Thickness = 2
-UIStroke7.Parent = UseCamFarm
+UIStroke4.Parent = CrentBounty
 --// Edit Gui
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -823,44 +853,25 @@ function MakeDraggable(topbarobject, object)
 		end
 	)
 end
-MakeDraggable(DropShadowHolder,DropShadowHolder)
-Skip.MouseButton1Down:Connect(function()
+MakeDraggable(MainFrame, MainFrame)
+SkipButton.MouseButton1Down:Connect(function()
     findtarget()
 end)
 CamFarm = getgenv().Setting.Misc["Enable Cam Farm"]
 if CamFarm == false then
-    UseCamFarm.Text = "Enable Cam Farm"
     game.Players.LocalPlayer.CameraMinZoomDistance = 127
     game.Players.LocalPlayer.CameraMaxZoomDistance = 127
     game.Players.LocalPlayer.CameraMaxZoomDistance = 127
     game.Players.LocalPlayer.CameraMinZoomDistance = 0
 else
     CamFarm = true
-    UseCamFarm.Text = "Disable Cam Farm"
     game.Players.LocalPlayer.CameraMinZoomDistance = 0
     game.Players.LocalPlayer.CameraMaxZoomDistance = 0
     game.Players.LocalPlayer.CameraMaxZoomDistance = 127
     game.Players.LocalPlayer.CameraMinZoomDistance = 0
 end
-UseCamFarm.MouseButton1Down:Connect(function()
-    if CamFarm == true then
-        CamFarm = false
-        UseCamFarm.Text = "Enable Cam Farm"
-        game.Players.LocalPlayer.CameraMinZoomDistance = 127
-        game.Players.LocalPlayer.CameraMaxZoomDistance = 127
-        game.Players.LocalPlayer.CameraMaxZoomDistance = 127
-        game.Players.LocalPlayer.CameraMinZoomDistance = 0
-    else
-        CamFarm = true
-        UseCamFarm.Text = "Disable Cam Farm"
-        game.Players.LocalPlayer.CameraMinZoomDistance = 0
-        game.Players.LocalPlayer.CameraMaxZoomDistance = 0
-        game.Players.LocalPlayer.CameraMaxZoomDistance = 127
-        game.Players.LocalPlayer.CameraMinZoomDistance = 0
-    end
-end)
 --// Counter
-local foldername = "Edward Newgate Hub auto bouty"
+local foldername = "Rimus Hub Auto Bounty"
 local filename = foldername.."/Config.json"
 function saveSettings()
     local HttpService = game:GetService("HttpService")
@@ -887,13 +898,14 @@ function loadSettings()
 end
 _G.Total = 0
 _G.Time = 0
+loadSettings()
 Bounty = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].value
 Earned = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].value - Bounty
 Earned2 = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].value - Bounty
 startTime = tick() - _G.Time
 OldTotalEarned = _G.Total 
 TotalEarned = _G.Total
-function GetElapsedTime(startTime)
+function GetAccountElapsedTime(startTime)
     local elapsedTime = tick() - startTime
     local hours = math.floor(elapsedTime / 3600)
     local minutes = math.floor((elapsedTime % 3600) / 60)
@@ -902,25 +914,42 @@ function GetElapsedTime(startTime)
     local formattedTime = string.format("%dh:%dm:%ds", hours, minutes, seconds)
     return formattedTime
 end
+startTime2 = tick()
+function GetAccountElapsedTime(startTime)
+    local elapsedTime = tick() - startTime
+    local hours = math.floor(elapsedTime / 3600)
+    local minutes = math.floor((elapsedTime % 3600) / 60)
+    local seconds = math.floor(elapsedTime % 60)
+    local formattedTime = string.format("%dh:%dm:%ds", hours, minutes, seconds)
+    return formattedTime
+end
 spawn(function()
     while task.wait() do 
-        Earned = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].value - Bounty
-        TotalEarned = OldTotalEarned + Earned
-        _G.Total = TotalEarned
-        task.wait(0.01)
-        TextLabel2.Text = "Earn: "..tostring(TotalEarned)
-        TextLabel3.Text = "Time Elapsed: "..tostring(GetElapsedTime(startTime))
-        saveSettings()
         if checktarget() then
             if enemy:DistanceFromCharacter(WaitHRP(lp).Position) <= 30 then
                 local skills = getAvailableSkills(getgenv().Setting)
                 if skills then
                     equip(skills[3])
                     down(skills[1], skills[2]["Hold Time"])
-                    Attack()
                 end
             end
         end
+    end
+end)
+spawn(function()
+    while task.wait() do 
+        Current = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].value
+        Earned = Current - Bounty
+        TotalEarned = OldTotalEarned + Earned
+        _G.Total = TotalEarned
+        task.wait(0.5)
+        CrentBounty.Text = "Current Bounty: "..tostring(Current).."$"
+        BountyEarned.Text = "Bounty Earned: "..tostring(Earned).."$"
+        TotalBountyEarned.Text = "Total Bounty Earned: "..tostring(TotalEarned).."$"
+        CilentTimeElapsed.Text = "Cilent Time Elapsed: "..tostring(GetCilentElapsedTime(startTime2))
+        AccountTimeElapsed.Text = "Account Time Elapsed: "..tostring(GetAccountElapsedTime(startTime))
+        saveSettings()
+        task.wait(0.5)
     end
 end)
 local radius = 15
