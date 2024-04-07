@@ -1,6 +1,3 @@
-repeat wait()
-until game:IsLoaded()
-wait()
 
 if game.PlaceId == 2753915549 then
     World1 = true
@@ -8,6 +5,8 @@ elseif game.PlaceId == 4442272183 then
     World2 = true
 elseif game.PlaceId == 7449423635 then
     World3 = true
+else
+    game:GetService("Players").LocalPlayer:Kick("Do not Support, Please wait...")
 end
 -------------------------------------------------------
 
@@ -1478,7 +1477,7 @@ function library:Window(text,text2,text3,logo,keybind)
 end
 
 
-local win = library:Window("    Rùa",[[     Hub]],[[Blox-Fruit]],"17048149699",Enum.KeyCode.RightControl)
+local win = library:Window(" Rùa",[[Hub]],[[Blox-Fruit]],"17048149699",Enum.KeyCode.RightControl)
 
 ----------------------------------------tap---------------
 local General = win:Tab("General",[[17048149699]])
