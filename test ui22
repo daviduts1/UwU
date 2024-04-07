@@ -424,14 +424,14 @@ function library:Window(text,text2,text3,logo,keybind)
 	ToggleImgUi.Size = UDim2.new(0, 35, 0, 35)
 	ToggleImgUi.Image = "rbxassetid://17048149699"
 	
-	Uitoggle.Name = "Rùa Hub"
+	Uitoggle.Name = "Uitoggle"
 	Uitoggle.Parent = ToggleFrameUi
 	Uitoggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Uitoggle.BackgroundTransparency = 1.000
 	Uitoggle.Position = UDim2.new(0.25757575, 0, 0, 0)
 	Uitoggle.Size = UDim2.new(0, 137, 0, 25)
 	Uitoggle.Font = Enum.Font.GothamSemibold
-	Uitoggle.Text = "Rùa Hub:"
+	Uitoggle.Text = "Rùa Hub :"
 	Uitoggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Uitoggle.TextSize = 12.000
 	
@@ -1475,7 +1475,7 @@ function library:Window(text,text2,text3,logo,keybind)
 end
 
 
-local win = library:Window("    Rùa",[[     Hub]],[[Blox-Fruit]],"17048149699",Enum.KeyCode.discord.gg/wMAAcxjFww)
+local win = library:Window("    Rùa",[[     Hub]],[[Blox-Fruit]],"17048149699",Enum.KeyCode.RightControl)
 
 ----------------------------------------tap---------------
 local General = win:Tab("General",[[17048149699]])
