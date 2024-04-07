@@ -1,3 +1,15 @@
+repeat wait()
+until game:IsLoaded()
+wait()
+
+if game.PlaceId == 2753915549 then
+    World1 = true
+elseif game.PlaceId == 4442272183 then
+    World2 = true
+elseif game.PlaceId == 7449423635 then
+    World3 = true
+end
+-------------------------------------------------------
 
 _G.Color = Color3.fromRGB(176,224,230)
 repeat wait(1) until game:IsLoaded()
@@ -63,21 +75,21 @@ local ActualTypes = {
 local Properties = {
 	RoundFrame = {
 		BackgroundTransparency = 1,
-		Image = "http://www.roblox.com/asset/?id=5554237731",
+		Image = "http://www.roblox.com/asset/?id=17048149699",
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(3,3,297,297)
 	},
 	SmoothButton = {
 		AutoButtonColor = false,
 		BackgroundTransparency = 1,
-		Image = "http://www.roblox.com/asset/?id=5554237731",
+		Image = "http://www.roblox.com/asset/?id=17048149699",
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(3,3,297,297)
 	},
 	Shadow = {
 		Name = "Shadow",
 		BackgroundTransparency = 1,
-		Image = "http://www.roblox.com/asset/?id=5554236805",
+		Image = "http://www.roblox.com/asset/?id=17048149699",
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(23,23,277,277),
 		Size = UDim2.fromScale(1,1) + UDim2.fromOffset(30,30),
@@ -85,12 +97,12 @@ local Properties = {
 	},
 	Circle = {
 		BackgroundTransparency = 1,
-		Image = "http://www.roblox.com/asset/?id=5554831670"
+		Image = "http://www.roblox.com/asset/?id=17048149699"
 	},
 	CircleButton = {
 		BackgroundTransparency = 1,
 		AutoButtonColor = false,
-		Image = "http://www.roblox.com/asset/?id=5554831670"
+		Image = "http://www.roblox.com/asset/?id=17048149699"
 	},
 	Frame = {
 		BackgroundTransparency = 1,
@@ -128,13 +140,13 @@ local Properties = {
 		Name = "More",
 		AutoButtonColor = false,
 		BackgroundTransparency = 1,
-		Image = "http://www.roblox.com/asset/?id=5555108481",
+		Image = "http://www.roblox.com/asset/?id=17048149699",
 		Size = UDim2.fromOffset(20,20),
 		Position = UDim2.fromScale(1,0.5) - UDim2.fromOffset(25,10)
 	},
 	NavBar = {
 		Name = "SheetToggle",
-		Image = "http://www.roblox.com/asset/?id=5576439039",
+		Image = "http://www.roblox.com/asset/?id=17048149699",
 		BackgroundTransparency = 1,
 		Size = UDim2.fromOffset(20,20),
 		Position = UDim2.fromOffset(5,5),
@@ -274,7 +286,7 @@ function library:Window(text,text2,text3,logo,keybind)
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
 	local RippleHUBLIB = Instance.new("ScreenGui")
-	RippleHUBLIB.Name = "RippleHUBLIB"
+	RippleHUBLIB.Name = "RùaHUBLIB"
 	RippleHUBLIB.Parent = game.CoreGui
 	RippleHUBLIB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -386,7 +398,7 @@ function library:Window(text,text2,text3,logo,keybind)
 	local SearchStroke = Instance.new("UIStroke")
 	
 	
-	Luna.Name = "Ripple"
+	Luna.Name = "Rùa"
 	Luna.Parent = game.CoreGui
 	Luna.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	
@@ -413,7 +425,7 @@ function library:Window(text,text2,text3,logo,keybind)
 	ToggleImgUi.BackgroundTransparency = 1.000
 	ToggleImgUi.Position = UDim2.new(0.0454545468, 0, 0.125000313, 0)
 	ToggleImgUi.Size = UDim2.new(0, 35, 0, 35)
-	ToggleImgUi.Image = "rbxassetid://13758663242"
+	ToggleImgUi.Image = "rbxassetid://17048149699"
 	
 	Uitoggle.Name = "Uitoggle"
 	Uitoggle.Parent = ToggleFrameUi
@@ -422,7 +434,7 @@ function library:Window(text,text2,text3,logo,keybind)
 	Uitoggle.Position = UDim2.new(0.25757575, 0, 0, 0)
 	Uitoggle.Size = UDim2.new(0, 137, 0, 25)
 	Uitoggle.Font = Enum.Font.GothamSemibold
-	Uitoggle.Text = "Ui Toggle :"
+	Uitoggle.Text = "Rùa Hub :"
 	Uitoggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Uitoggle.TextSize = 12.000
 	
@@ -490,7 +502,7 @@ function library:Window(text,text2,text3,logo,keybind)
     IMGNAME.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     IMGNAME.Position = UDim2.new(0, 0, 0, 0)
     IMGNAME.Size = UDim2.new(0, 150, 0, 150)
-    IMGNAME.Image = "rbxassetid://13758663242"
+    IMGNAME.Image = "rbxassetid://17048149699"
 
 	local TCNR11 = Instance.new("UICorner")
 	TCNR11.Name = "TCNR"
@@ -554,7 +566,7 @@ function library:Window(text,text2,text3,logo,keybind)
 	IM10GNAME.ImageTransparency = 0.750
     IM10GNAME.Position = UDim2.new(0, 0, 0, 0)
     IM10GNAME.Size = UDim2.new(0, 490, 0, 365)
-    IM10GNAME.Image = "rbxassetid://13758663242"
+    IM10GNAME.Image = "rbxassetid://17048149699"
 
 	local PageList = Instance.new("Folder")
 	PageList.Name = "PageList"
@@ -931,7 +943,7 @@ function library:Window(text,text2,text3,logo,keybind)
 			DropImage.Position = UDim2.new(0, 445, 0, 6)
 			DropImage.Rotation = -90
 			DropImage.Size = UDim2.new(0, 20, 0, 20)
-			DropImage.Image = "rbxassetid://6031090990"
+			DropImage.Image = "rbxassetid://17048149699"
 			
 			DropImagee.Name = "DropImage"
 			DropImagee.Parent = Dropdown
@@ -973,7 +985,7 @@ function library:Window(text,text2,text3,logo,keybind)
 				Itemlogo.BackgroundTransparency = 1.000
 				Itemlogo.Position = UDim2.new(0, 460, 0, 26)
 				Itemlogo.Size = UDim2.new(0, 20, 0, 20)
-				Itemlogo.Image = "rbxassetid://6031090990"
+				Itemlogo.Image = "rbxassetid://17048149699"
 
 				Item.MouseEnter:Connect(function()
 					TweenService:Create(
@@ -1466,24 +1478,203 @@ function library:Window(text,text2,text3,logo,keybind)
 end
 
 
-local win = library:Window("    Zps X Snow",[[     Hub]],[[Blox-Fruit]],"13758663242",Enum.KeyCode.RightControl)
-local General = win:Tab("General",[[13758663242]])
+local win = library:Window("    Rùa",[[     Hub]],[[Blox-Fruit]],"17048149699",Enum.KeyCode.RightControl)
 
-General:Seperator("Auto Farm ")
+----------------------------------------tap---------------
+local General = win:Tab("General",[[17048149699]])
+local Setting = win:Tab("Setting",[[17048149699]])
+local Sever = win:Tab("Status Sever",[[17048149699]])
+local Teleport = win:Tab("Teleport",[[17048149699]])
+local Item = win:Tab("Item & Quest",[[17048149699]])
+local Stats = win:Tab("Stats",[[17048149699]])
+local ESP = win:Tab("ESP",[[17048149699]])
+local Raid = win:Tab("Raid",[[17048149699]])
+local Sea = win:Tab("Sea Event",[[17048149699]])
+local Players = win:Tab("Local Players",[[17048149699]])
+local Fruit = win:Tab("Devil Fruit",[[17048149699]])
+local Race = win:Tab("Race V4",[[17048149699]])
+local Shop = win:Tab("Shop",[[17048149699]])
+local Misc = win:Tab("Misc",[[17048149699]])
 
-General:Toggle("Auto Farm Lever","13758663242",_G.AutoFarm,function(a)
-_G.AutoFarm = a
+
+
+General:Seperator("Select Weapon")
+
+General:Dropdown("Select Weapon",{"Melee", "Sword", "Fruit", "Gun"},function(v)
+    _G.SelectWeapon = v
 end)
 
-General:Dropdown("Dropdown",{"1"},function(vu)
-    Weapon = vu
-end)
-General:Button("Delete Effect Damage", function()
-game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+task.spawn(
+    function()
+        while wait() do
+            pcall(
+                function()
+                    if _G.SelectWeapon == "Melee" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Melee" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    _G.SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    elseif _G.SelectWeapon == "Sword" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Sword" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    _G.SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    elseif _G.SelectWeapon == "Gun" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Gun" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    _G.SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    elseif _G.SelectWeapon == "Fruit" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Blox Fruit" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    _G.SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    end
+                end
+            )
+        end
+    end
+)
+General:Seperator("Fast Attack")
+
+General:Toggle("Fast Attack","17048149699",_G.FastAttack,function(a)
+    _G.FastAttack = a
 end)
 
-General:Label("Label")
+local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
+CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+y = debug.getupvalues(CombatFrameworkR)[2]
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            if typeof(y) == "table" then
+                pcall(function()
+                    CameraShaker:Stop()
+                    y.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    y.activeController.timeToNextAttack = 0
+                    y.activeController.hitboxMagnitude = 60
+                    y.activeController.active = false
+                    y.activeController.timeToNextBlock = 0
+                    y.activeController.focusStart = 1655503339.0980349
+                    y.activeController.increment = 1
+                    y.activeController.blocking = false
+                    y.activeController.attacking = false
+                    y.activeController.humanoid.AutoRotate = true
+                end)
+            end
+        end
+    end)
+end)
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack or _G.FastAttackCambodiakak == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
+end)
+local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+CamShake:Stop()
+local Client = game.Players.LocalPlayer
+local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+            if not shared.cpc then shared.cpc = STOP.play end
+                STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                local Hits = STOPRL.getBladeHits(b,c,d)
+                if Hits then
+                    if _G.FastAttack then
+                        STOP.play = function() end
+                        a:Play(0.01,0.01,0.01)
+                        func(Hits)
+                        STOP.play = shared.cpc
+                        wait(a.length * 0.5)
+                        a:Stop()
+                    else
+                        a:Play()
+                    end
+                end
+            end
+        end)
+    end
+end)
 
+General:Toggle("Auto Click","17048149699",_G.AutoClick,function(a)
+    _G.AutoClick = a
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.AutoClick or Fastattack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+                game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+            end)
+        end
+    end)
+    end)
+
+
+General:Seperator("Other Farm")
+
+local x2Code = {
+    "JULYUPDATE_RESET",
+    "staffbattle",
+    "Sub2CaptainMaui",
+    "SUB2GAMERROBOT_RESET1",
+    "KittGaming",
+    "Sub2Fer999",
+    "Enyu_is_Pro",
+    "Magicbus",
+    "ENYU_IS_PRO",
+    "FUDD10",
+    "BIGNEWS",
+    "THEGREATACE",
+    "SUB2GAMERROBOT_EXP1",
+    "STRAWHATMAIME",
+    "SUB2OFFICIALNOOBIE",
+    "SUB2NOOBMASTER123",
+    "SUB2DAIGROCK",
+    "AXIORE",
+    "TANTAIGAMIMG",
+    "STRAWHATMAINE",
+    "JCWK",
+    "FUDD10_V2",
+    "SUB2FER999",
+    "MAGICBIS",
+    "TY_FOR_WATCHING",
+    "STARCODEHEO"
+}
+
+General:Toggle("Redeem all code","17048149699",RedeemCode,function(value)
+    function RedeemCode(value)
+        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+    end
+    for i, v in pairs(x2Code) do
+        RedeemCode(v)
+    end
+end)
+
+General:Seperator("Auto Farm")
+
+General:Toggle("Auto Farm Lever","17048149699",_G.AutoFarm,function(a)
+    _G.AutoFarm = a
+end)
 
 function CheckQuest()
     MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -2887,3 +3078,4 @@ function CheckQuest()
         end
     end
 end
+--------------------------------------------------------------
