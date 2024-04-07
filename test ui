@@ -490,7 +490,7 @@ function library:Window(text,text2,text3,logo,keybind)
     IMGNAME.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     IMGNAME.Position = UDim2.new(0, 0, 0, 0)
     IMGNAME.Size = UDim2.new(0, 150, 0, 150)
-    IMGNAME.Image = "rbxassetid://13758663242"
+    IMGNAME.Image = "rbxassetid://17048149699"
 
 	local TCNR11 = Instance.new("UICorner")
 	TCNR11.Name = "TCNR"
@@ -931,7 +931,7 @@ function library:Window(text,text2,text3,logo,keybind)
 			DropImage.Position = UDim2.new(0, 445, 0, 6)
 			DropImage.Rotation = -90
 			DropImage.Size = UDim2.new(0, 20, 0, 20)
-			DropImage.Image = "rbxassetid://6031090990"
+			DropImage.Image = "rbxassetid://17048149699"
 			
 			DropImagee.Name = "DropImage"
 			DropImagee.Parent = Dropdown
@@ -973,7 +973,7 @@ function library:Window(text,text2,text3,logo,keybind)
 				Itemlogo.BackgroundTransparency = 1.000
 				Itemlogo.Position = UDim2.new(0, 460, 0, 26)
 				Itemlogo.Size = UDim2.new(0, 20, 0, 20)
-				Itemlogo.Image = "rbxassetid://6031090990"
+				Itemlogo.Image = "rbxassetid://17048149699"
 
 				Item.MouseEnter:Connect(function()
 					TweenService:Create(
