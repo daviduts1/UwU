@@ -1,3 +1,20 @@
+First_Sea = false
+Second_Sea = false
+Third_Sea = false
+local placeId = game.PlaceId
+if placeId == 2753915549 then
+First_Sea = true
+elseif placeId == 4442272183 then
+Second_Sea = true
+elseif placeId == 7449423635 then
+Third_Sea = true
+end
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "jano do dominika", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
 function CheckQuest()
     local Lv = (game:GetService("Players")).LocalPlayer.Data.Level.Value
         if World1 then
@@ -627,9 +644,7 @@ end
 end
 
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "jano do dominika", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
     ---------------------------
     First_Sea = false
