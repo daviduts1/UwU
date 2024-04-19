@@ -15,14 +15,14 @@ elseif placeId == 7449423635 then
 Third_Sea = true
 end
 
-local sea = Window:MakeTab({
+local Main = Window:MakeTab({
 	Name = "Sea event",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-sea:AddToggle({
-	Name = "This is a toggle!",
+Main:AddToggle({
+	Name = "auto click",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoClick = Value
@@ -41,7 +41,7 @@ spawn(function()
 end)
 
 
-sea:AddDropdown({
+Main:AddDropdown({
     Name = "Select Fast Attack Speed",
     Default = "Super Fast",
     Options = {"Ultra Fast","Super Fast","Fast","Slow"},
@@ -50,7 +50,7 @@ sea:AddDropdown({
     end    
 })
 
-sea:AddToggle({
+Main:AddToggle({
     Name = "Fast Attack",
     Default = true,
     Callback = function(Value)
@@ -188,20 +188,7 @@ spawn(function()
     end
 end)
 
-sea:AddLabel("Sea Event")
-sea:AddToggle({
-    Name = "Teleport To Sea Beast",
-    Default = false,
-    Callback = function(Value)
-        for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-            if v:FindFirstChild("HumanoidRootPart") then
-                topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
-            end
-        end
-    end    
-})
-
-sea:AddToggle({
+Main:AddToggle({
     Name = "Auto Kill Sea Beast",
     Default = false,
     Callback = function(Value)
@@ -293,7 +280,7 @@ spawn(function()
     end
 end)
 
-sea:AddToggle({
+Main:AddToggle({
     Name = "Auto Kill Pirate Ship",
     Default = false,
     Callback = function(Value)
@@ -321,7 +308,7 @@ spawn(function()
     end
 end)
 
-sea:AddToggle({
+Main:AddToggle({
     Name = "Auto Kill Terror Shark",
     Default = false,
     Callback = function(Value)
@@ -367,7 +354,7 @@ BoatsName = {}
 for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
     table.insert(BoatsName ,v.Name)
 end
-local Boats = sea:AddDropdown({
+local Boats = Main:AddDropdown({
     Name = "Select Boat",
     Default = "",
     Options = BoatsName,
@@ -376,7 +363,7 @@ local Boats = sea:AddDropdown({
     end    
 })
 
-sea:AddButton({
+Main:AddButton({
     Name = "Refresh Boat List",
     Callback = function()
         BoatsName = {}
@@ -387,14 +374,14 @@ sea:AddButton({
     end    
 })
 
-sea:AddButton({
+Main:AddButton({
     Name = "Bring Boat",
     Callback = function()
         game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[_G.SelectB].Seat.CFrame
     end    
 })
 
-sea:AddToggle({
+Main:AddToggle({
     Name = "Teleport To Boat",
     Default = _G.TPB,
     Callback = function(Value)
@@ -430,8 +417,7 @@ sea:AddToggle({
     end    
 })
 
-
-sea:AddToggle({
+Main:AddToggle({
     Name = "Spectate Boat",
     Default = false,
     Callback = function(Value)
@@ -445,7 +431,7 @@ sea:AddToggle({
     end    
 })
 
-sea:AddSlider({
+Main:AddSlider({
     Name = "Set Boat Speed",
     Min = 0,
     Max = 1000,
