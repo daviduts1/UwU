@@ -648,7 +648,7 @@ function lib:main()
                 Presshere.Position = UDim2.new(0.011933174, 0, 0.075000003, 0)
                 Presshere.Size = UDim2.new(0, 376, 0, 37)
                 Presshere.Font = Enum.Font.GothamBold
-                Presshere.Text = "Press here to work!"
+                Presshere.Text = "Click here to enable script!"
                 Presshere.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Presshere.TextSize = 19.000
                 Presshere.TextTransparency = 0.5
@@ -660,7 +660,7 @@ function lib:main()
                 imgbutton.ClipsDescendants = true
                 imgbutton.Position = UDim2.new(0.722480655, 0, 0.00591715984, 0)
                 imgbutton.Size = UDim2.new(0, 169, 0, 169)
-                imgbutton.Image = "rbxassetid://11960621607"
+                imgbutton.Image = "rbxassetid://15867528492"
 
                 Button.Name = "Button"
                 Button.Parent = ButtonFrame
@@ -1453,7 +1453,7 @@ local Tab1 = ui:Tab({titel = "Main" })
 local Page1 = Tab1:Page(1)
 
 
-desgotosea2 = "Script Maru Hub , Main "
+desgotosea2 = "Script Maru Hub , Main all map , king legacy , blox fruit "
 Page1:Button("Maru Hub",desgotosea2,17470429122,function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/daviduts1/vietnamese/main/UwU"))()
 end
