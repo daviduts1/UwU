@@ -33,9 +33,9 @@ if Third_Sea then
 
     function UpdateKitsune()
         if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island') then
-            StatusKitsune:SetDesc("Kitsune Island : [YES]")
+            StatusKitsune:Set({Content = "Kitsune Island : [YES]"})
         else
-            StatusKitsune:SetDesc("Kitsune Island : [NO]")
+            StatusKitsune:Set({Content = "Kitsune Island : [NO]"})
         end
     end
 
@@ -185,11 +185,7 @@ if Third_Sea then
                                     if v.Name == "PirateGrandBrigade" then
                                         repeat wait(_G.Fast_Delay)
                                             if (CFrame.new(-17013.80078125, 10.962434768676758, 438.0169982910156).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                                TweenShip(CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094))
-                                            elseif (CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                                 TweenShip(CFrame.new(-37952.49609375, 10.96342945098877, -1324.12109375))
-                                            elseif (CFrame.new(-37952.49609375, 10.96342945098877, -1324.12109375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                                TweenShip(CFrame.new(-33141.80859375, 10.963570594787598, -11097.7255859375))
                                             end
                                         until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or
                                               game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or
