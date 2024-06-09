@@ -1,0 +1,203 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Edward Newgate Hub " .. Fluent.Version,
+    SubTitle = "by edwardnewgatedz",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+if game.CoreGui:FindFirstChild("EdwardnewgateHubOpenClose") then
+    game.CoreGui:FindFirstChild("EdwardnewgateHubOpenClose"):Destroy()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui.Name = "EdwardnewgateHubOpenClose"
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+ImageButton.Draggable = false
+ImageButton.Position = UDim2.new(0.08, 0, 0.06, 0)
+ImageButton.Size = UDim2.new(0, 50, 0, 50)
+ImageButton.Image = "rbxassetid://15867528462"
+
+UICorner.Name = "MainCorner"
+UICorner.CornerRadius = UDim.new(0, 9)
+UICorner.Parent = ImageButton
+
+ImageButton.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, 127, false, game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false, 127, false, game)
+end)
+
+--------------------------------------------------------------------------------
+
+local Tabs = {
+    M = Window:AddTab({ Title = "Main", Icon = "home" }),
+    SS = Window:AddTab({ Title = "Sever Stats", Icon = "router" }),
+    IQ = Window:AddTab({ Title = "Item & Quest", Icon = "swords" }),
+    S = Window:AddTab({ Title = "Settings", Icon = "settings" }), -- Dấu phẩy được thêm vào đây
+    SE = Window:AddTab({ Title = "Sea Event", Icon = "fish" }),
+    R = Window:AddTab({ Title = "Race V4", Icon = "rabbit" }),
+    E = Window:AddTab({ Title = "Esp", Icon = "message-square-more" }),
+    T = Window:AddTab({ Title = "Teleport", Icon = "tree-palm" }),
+    MS = Window:AddTab({ Title = "Misc", Icon = "list-collapse" })
+}
+
+-------------------------------------------------------------------------------
+
+spawn(function()
+    repeat task.wait() until game:IsLoaded()
+    repeat task.wait() until game.Players
+    repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Team ~= nil
+    wait(1)
+    require(game.ReplicatedStorage.Notification).new("<Color=Red>Edward Newgate Hub<Color=/>"):Display()
+    wait(2)
+    require(game.ReplicatedStorage.Notification).new("<Color=Red>https://discord.gg/wMAAcxjFww<Color=/>"):Display()
+    wait(3)
+    require(game.ReplicatedStorage.Notification).new("<Color=Yellow>Welcome to Edward Newgate Hub<Color=/>"):Display()
+    wait(4)
+    require(game.ReplicatedStorage.Notification).new("<Color=Yellow>I LOVE YOU<Color=/>"):Display()
+    wait(5)
+end)
+
+local Section = Tabs.M:AddSection("Setting Farm")
+
+local SelectWeaponFarm = Section:AddDropdown("SelectWeaponFarm", {
+    Title = "Select Weapon",
+    Values = {"Melee", "Sword", "Devil Fruit", "Gun"},
+    Multi = false,
+    Default = 1,
+})
+
+SelectWeaponFarm:OnChanged(function(Value)
+    _G.SelectWeapon = Value
+end)
+
+task.spawn(function()
+    while wait() do
+        pcall(function()
+            local backpack = game.Players.LocalPlayer.Backpack
+            for _, v in pairs(backpack:GetChildren()) do
+                if v.ToolTip == _G.SelectWeapon then
+                    _G.SelectWeapon = v.Name
+                end
+            end
+        end)
+    end
+end)
+
+local FastAttackFarm = Section:AddDropdown("FastAttackFarm", {
+    Title = "Select Fast Attack",
+    Values = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"},
+    Multi = false,
+    Default = 8,
+})
+
+FastAttackFarm:OnChanged(function(Value)
+    _G.FastAttackDelay = tonumber(Value)
+end)
+
+spawn(function()
+    while wait(.1) do
+        if _G.FastAttackDelay then
+            pcall(function()
+                -- Các hành động khi thay đổi giá trị FastAttackDelay
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait(.1) do
+        if _G.FastAttack then
+            pcall(function()
+                repeat
+                    task.wait(_G.FastAttackDelay)
+                    AttackHit()
+                until not _G.FastAttack
+            end)
+        end
+    end
+end)
+
+local FastAttackToggle = Section:AddToggle("FastAttackToggle", {Title = "Fast Attack", Default = true})
+FastAttackToggle:OnChanged(function(Value)
+    _G.FastAttack = Value
+end)
+
+local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
+local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+local y = debug.getupvalues(CombatFrameworkR)[2]
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            if typeof(y) == "table" then
+                pcall(function()
+                    CameraShaker:Stop()
+                    y.activeController.timeToNextAttack = 0
+                    y.activeController.hitboxMagnitude = 60
+                    y.activeController.active = false
+                    y.activeController.timeToNextBlock = 0
+                    y.activeController.focusStart = 1655503339.0980349
+                    y.activeController.increment = 1
+                    y.activeController.blocking = false
+                    y.activeController.attacking = false
+                    y.activeController.humanoid.AutoRotate = true
+                end)
+            end
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false
+        end
+    end)
+end)
+
+local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+CamShake:Stop()
+
+local Client = game.Players.LocalPlayer
+local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+            if not shared.cpc then shared.cpc = STOP.play end
+            STOPRL.wrapAttackAnimationAsync = function(a, b, c, d, func)
+                local Hits = STOPRL.getBladeHits(b, c, d)
+                if Hits then
+                    if _G.FastAttack then
+                        STOP.play = function() end
+                        a:Play(0.01, 0.01, 0.01)
+                        func(Hits)
+                        STOP.play = shared.cpc
+                        wait(a.length * 0.5)
+                        a:Stop()
+                    else
+                        a:Play()
+                    end
+                end
+            end
+        end)
+    end
+end)
