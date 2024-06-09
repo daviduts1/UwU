@@ -8,54 +8,6 @@ else
     game:GetService("Players").LocalPlayer:Kick("Do not Support, Please wait...")
 end
 
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-local function reduceGraphicsSettings()
-    local settings = UserSettings()
-    local rendering = settings.GameSettings
-
-    -
-    rendering.SavedQualityLevel = Enum.SavedQualitySetting.QualityLevel1
-    
-    print("Graphics settings have been set to low")
-end
-
-
-local Workspace = game:GetService("Workspace")
-
-local function enableStreaming()
-    Workspace.StreamingEnabled = true
-    Workspace.StreamingMinRadius = 64  
-    Workspace.StreamingTargetRadius = 256  
-    
-    print("StreamingEnabled has been set")
-end
-
-enableStreaming()
-
-
-local function optimizeClient()
-   
-end
-
-local function onPlayerAdded()
-    reduceGraphicsSettings()
-    optimizeClient()
-end
-
-if LocalPlayer then
-    onPlayerAdded()
-else
-    Players.PlayerAdded:Connect(function(player)
-        if player == LocalPlayer then
-            onPlayerAdded()
-        end
-    end)
-end
-
-
-
 function CheckQuest()
     MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
     if World1 then
