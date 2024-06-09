@@ -1615,7 +1615,8 @@ spawn(function()
     end
 end)
 
-local ToggleLevel = Tabs.M:AddToggle("ToggleLevel", {Title = "Auto Level", Default = false })
+local ToggleLevel = Tabs.M:AddToggle("ToggleLevel", {Title = "Auto Level", Default = false})
 ToggleLevel:OnChanged(function(Value)
     _G.AutoFarm = Value
+    print("AutoFarm is now " .. (Value and "enabled" or "disabled"))
 end)
