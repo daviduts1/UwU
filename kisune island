@@ -1,0 +1,146 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/1st-Mars/Misc/main/O')))()
+local Window = OrionLib:MakeWindow({Name = "celestial Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local kis = Window:MakeTab({
+	Name = "kisune",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local Section = kis:AddSection({
+	Name = "Kistune Island Spam"
+})
+
+
+
+kis:AddToggle({
+	Name = "Esp Kitsune Event Island",
+	Default = false,
+	Callback = function(Value)
+        KitsuneIslandEsp = Value
+        while KitsuneIslandEsp do wait()
+            UpdateIslandKisuneESP() 
+        end
+	end    
+})
+Options.ToggleEspKitsune:SetValue(false)
+
+function UpdateIslandKisuneESP() 
+  for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
+      pcall(function()
+          if KitsuneIslandEsp then 
+              if v.Name == "Kitsune Island" then
+                  if not v:FindFirstChild('NameEsp') then
+                      local bill = Instance.new('BillboardGui',v)
+                      bill.Name = 'NameEsp'
+                      bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                      bill.Size = UDim2.new(1,200,1,30)
+                      bill.Adornee = v
+                      bill.AlwaysOnTop = true
+                      local name = Instance.new('TextLabel',bill)
+                      name.Font = "Code"
+                      name.FontSize = "Size14"
+                      name.TextWrapped = true
+                      name.Size = UDim2.new(1,0,1,0)
+                      name.TextYAlignment = 'Top'
+                      name.BackgroundTransparency = 1
+                      name.TextStrokeTransparency = 0.5
+                      name.TextColor3 = Color3.fromRGB(80, 245, 245)
+                  else
+                      v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                  end
+              end
+          else
+              if v:FindFirstChild('NameEsp') then
+                  v:FindFirstChild('NameEsp'):Destroy()
+              end
+          end
+      end)
+  end
+end
+
+kis:AddToggle({
+	Name = "Tween To Kitsune Island",
+	Default = false,
+	Callback = function(Value)
+		_G.TweenToKitsune = Value
+	end    
+})
+Options.ToggleTPKitsune:SetValue(false)
+spawn(function()
+  local kitsuneIsland
+  while not kitsuneIsland do
+      kitsuneIsland = game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
+      wait(1)
+  end
+  while wait() do
+      if _G.TweenToKitsune then
+          local shrineActive = kitsuneIsland:FindFirstChild("ShrineActive")
+          if shrineActive then
+              for _, v in pairs(shrineActive:GetDescendants()) do
+                  if v:IsA("BasePart") and v.Name:find("NeonShrinePart") then
+                      Tween(v.CFrame)
+                  end
+              end
+          end
+      end
+  end
+end)
+
+kis:AddToggle({
+	Name = "Collect Azure Ambers",
+	Default = false,
+	Callback = function(Value)
+		_G.CollectAzure = Value
+	end    
+})
+Options.ToggleCollectAzure:SetValue(false)
+spawn(function()
+    while wait() do
+        if _G.CollectAzure then
+            pcall(function()
+                if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
+                    Tween(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
+					print("Azure")
+                end
+            end)
+        end
+    end
+end)
+end
+
+kis:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RF/KitsuneStatuePray"):InvokeServer()
+	end    
+})
+
+
+
+
+
+
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+ScreenGui.Name = ""
+ScreenGui.Parent = game.CoreGui or game.Players.LocalPlayer.PlayerGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton.Size = UDim2.new(0, 50, 0, 50)
+ImageButton.Draggable = true
+ImageButton.Image = "https://www.roblox.com/asset/?id=15446676864"
+UICorner.Parent = ImageButton
+ImageButton.MouseButton1Down:connect(function()
+       game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+       game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+end)
+
